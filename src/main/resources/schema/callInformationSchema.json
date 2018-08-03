@@ -1,0 +1,58 @@
+{
+    "description" : "schema validating Call Messages",
+    "type" : "object",
+    "oneOf" : [{
+        "properties" : {
+	      "message_type": {
+	      	"type": "string",
+      		"enum": ["CALL"]
+    	      },
+    	      "timestamp": {
+      		"type": "number"
+    	      },
+    	      "origin": {
+      		"type": "number"
+    	      },
+    	      "destination": {
+      		"type": "number"
+    	      },
+    	      "duration": {
+      		"type": "number"
+    	      },
+    	      "status_code": {
+      		"type": "string",
+      		"enum":["OK", "KO"]
+    	      },
+    	      "status_description": {
+      		"type": "string"
+    	      }
+        },
+        "required" : ["message_type", "timestamp", "origin", "destination", "duration", "status_code", "status_description"],
+        "additionalProperties":false
+    }, {
+        "properties" : {
+	      "message_type": {
+	      	"type": "string",
+      		"enum": ["MSG"]
+    	      },
+    	      "timestamp": {
+      		"type": "number"
+    	      },
+    	      "origin": {
+      		"type": "number"
+    	      },
+    	      "destination": {
+      		"type": "number"
+    	      },
+    	      "message_content": {
+      		"type": "string"
+    	      },
+    	      "message_status": {
+      		"type": "string"
+    	      }
+        },
+        "required" : ["message_type", "timestamp", "origin", "destination", "message_content", "message_status"],
+        "additionalProperties":false
+    }
+]
+}
